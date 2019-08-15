@@ -12,5 +12,5 @@ class ApiHttpbinGet(BaseAPI):
 class ApiHttpbinPost(BaseAPI):
     url = 'https://httpbin.org/post'
     method = "POST"
-    json = "{'abc': 123}"
+    json = {'abc': 123}
     headers = {"accept": "application/json"}
