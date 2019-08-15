@@ -35,6 +35,10 @@ class BaseAPI(object):
         )
         return self
 
+    def extract(self,field):
+        value = getattr(self.response,field)
+        return value
+
     def validate(self, key, expected_value):
         value = self.response
         for _key in key.split("."):

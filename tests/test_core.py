@@ -3,7 +3,7 @@
 import requests
 
 from hogwarts_apitest.api import BaseAPI
-from tests.api.httpbin import ApiHttpbinGet, ApiHttpbinPost
+from tests.api.httpbin import ApiHttpbinGet, ApiHttpbinPost, ApiHttpbinGetCookies
 
 
 def test_version():
@@ -48,3 +48,15 @@ def test_httpbin_parameters_share():
         .validate("status_code",200)\
         .validate("url", "https://httpbin.org/post")\
         .validate("json().json.user_id", user_id)
+
+def test_httpbin_extract():
+    status_code = ApiHttpbinGet().run().extract("status_code")
+    assert status_code == 200
+
+
+# def test_httpbin_parameters_extract():
+#
+#     ApiHttpbinGetCookies()\
+#         .run()\
+#         .extract("status_code")
+
