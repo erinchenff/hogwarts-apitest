@@ -6,7 +6,7 @@ from hogwarts_apitest.api import BaseAPI
 
 def test_version():
     from hogwarts_apitest import __version__
-    assert isinstance((__version__,str))
+    assert isinstance(__version__,str)
 
 class ApiHttpbinGet(BaseAPI):
     url = "https://httpbin.org/get"
